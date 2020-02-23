@@ -46,7 +46,7 @@ contract practice{
 
     function buyItem(uint256 id) public payable{
         address payable buyer = msg.sender;
-        item memory _item= items[id];
+        item memory _item = items[id];
         require(id>0 && id < itemId,"Item not available");
         require(buyer.balance > _item.price && msg.value > _item.price,"Either Balance or value specified is less than item price");
         require(buyer != _item.owner,"Owner of item cannot be buyer himself");
