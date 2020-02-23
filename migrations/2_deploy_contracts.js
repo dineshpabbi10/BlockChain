@@ -1,4 +1,4 @@
-const Ethbay = artifacts.require("Ethbay");
+const Ethbay = artifacts.require("practice");
 
 module.exports = function(deployer) {
   deployer.deploy(Ethbay);

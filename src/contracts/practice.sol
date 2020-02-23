@@ -3,7 +3,7 @@ pragma solidity >0.4.21 < 0.7.0;
 contract practice{
     string public storeName;
     uint256 public itemId = 0;
-    address payable deployer;
+    address payable public deployer;
 
     constructor() public{
         storeName = "Test Store";

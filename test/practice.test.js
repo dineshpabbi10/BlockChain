@@ -1,5 +1,5 @@
 const Practice = artifacts.require("practice");
-require("chai").user(require("chai-as-promised")).should();
+require("chai").use(require("chai-as-promised")).should();
 
 contract(Practice,async ([deployer,buyer,seller])=>{
     
