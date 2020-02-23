@@ -42,5 +42,17 @@ contract(Practice,async ([deployer,buyer,seller])=>{
             assert.equal(event.isSold,false);
             assert.equal(event.price,web3.utils.toWei('1',"Ether"));
         });
+
+        
+        it("Buying item successfull",async()=>{
+            result = await practice.buyItem(1,{from:buyer,value:web3.utils.toWei("1","Ether")});
+            const event = result.logs[0].args;
+            assert.equal(event.id.toNumber(),1);
+            assert.equal(event.itemName,"T-Shirt");
+            assert.equal(event.owner,buyer);
+            assert.equal(event.isSold,true);
+            assert.equal(event.price,web3.utils.toWei('1',"Ether"));
+        });
     });
+    
 });
