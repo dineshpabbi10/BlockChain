@@ -26,4 +26,21 @@ contract(Practice,async ([deployer,buyer,seller])=>{
         });
 
     });
+
+    describe("TestList 2",async()=>{
+        let result , id;
+        before(async()=>{
+            result = await practice.createItem("T-Shirt",web3.utils.toWei('1',"Ether"),{from : seller});
+            id = practice.itemId();
+        });
+
+        it("Item Created Successfully",async()=>{
+            const event = result.logs[0].args;
+            assert.equal(event.id.toNumber(),1);
+            assert.equal(event.itemName,"T-Shirt");
+            assert.equal(event.owner,seller);
+            assert.equal(event.isSold,false);
+            assert.equal(event.price,web3.utils.toWei('1',"Ether"));
+        });
+    });
 });
